@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -9,34 +8,49 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange,
-        title: Center(
-          child: Text('loja'),
-       ),
-      ),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text('RE4'),
-              Image.asset('imagens/re4.jpg',
-              width: MediaQuery.of(context).size.width*0.3), //imagem re4
-              Image.asset('imagens/re7.jpg',
-              width: MediaQuery.of(context).size.width*0.3),  //imagem re7
-              Image.asset('imagens/re8.jpg',
-              width: MediaQuery.of(context).size.width*0.3),  //imagem re8    
-              ],
-              ),
-             ],
-          ),
-        ),
-      ),
+      home: listaContatos()
     );
- }
+  }
+
+  Scaffold listaContatos() {
+    
+    return Scaffold(
+      body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image.asset("imagens/download.png"),
+        Column(
+          children: [
+            Text("patrão"),
+            Text("prévia...")
+          ],
+        ),
+        Expanded(child: 
+        Column(
+          children: [
+            Text("19:00"),
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Colors.lightGreenAccent,
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.lightGreenAccent)
+                ),
+                child: Center(
+                  child: Text(
+                    "2",
+                    style: TextStyle(
+                      color: Colors.black
+                    ),
+                  ),
+                ),
+              ),
+           ]
+         )
+       ),
+      ],
+     )
+  );
+  }
 }
