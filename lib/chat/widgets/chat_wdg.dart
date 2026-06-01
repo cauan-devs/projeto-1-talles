@@ -1,4 +1,6 @@
+import 'package:appzin_2_0/chat/chat_mensages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WidgetContats extends StatefulWidget {
   const WidgetContats({super.key});
@@ -8,20 +10,23 @@ class WidgetContats extends StatefulWidget {
 }
 
 class _WidgetContatsState extends State<WidgetContats> {
+
   @override
   Widget build(BuildContext context) {
     return widgetLista();
   }
 
   Widget widgetLista() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Image.asset(
-          "imagens/download.png",
-          width: 60,
-          height: 60,
-        ),
+    return InkWell(
+      onTap: () => Get.to(Mensagens()),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            "imagens/download.png",
+            width: 60,
+            height: 60,
+          ),
         SizedBox(width: 10),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,6 +63,7 @@ class _WidgetContatsState extends State<WidgetContats> {
             ],
           ),
       ],
-    );
+      ),
+      );
   }
 }

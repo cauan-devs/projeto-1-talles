@@ -18,6 +18,13 @@ class ListaContatos extends StatelessWidget {
           WidgetContats(),
           WidgetContats(),
           WidgetContats(),
+          WidgetContats(),
+          WidgetContats(),
+          WidgetContats(),
+          WidgetContats(),
+          WidgetContats(),
+          WidgetContats(),
+          WidgetContats(),
         ],
       ),
     );
