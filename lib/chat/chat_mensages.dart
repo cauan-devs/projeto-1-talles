@@ -71,7 +71,7 @@ class _MensagensState extends State<Mensagens> {
               color: Colors.greenAccent
             ),padding: EdgeInsets.all(20),
             child: Text(
-              "hahaha. não, vai trabalhar"),
+              "hahaha não. Vai trabalhar"),
          ),
            Container(
                 width: 100,
@@ -85,9 +85,9 @@ class _MensagensState extends State<Mensagens> {
               ":(")
            ),
            Container(
-                width: 500,
+                width: 550,
                height: 60,
-            margin: EdgeInsetsDirectional.only(start: 50, top: 50, end: 40),
+            margin: EdgeInsetsDirectional.only(start: 53, top: 50, end: 45),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.0),
               color: Colors.white),
