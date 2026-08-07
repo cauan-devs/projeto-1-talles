@@ -132,7 +132,7 @@ class Input extends StatelessWidget {
     return Container(
       width: 550,
       height: 60,
-      margin: const EdgeInsetsDirectional.only(start: 53, top: 20, end: 45),
+      margin: const EdgeInsetsDirectional.only(start: 53, top: 10, end: 45),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
         color: Colors.white,
