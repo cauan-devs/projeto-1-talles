@@ -1,13 +1,18 @@
+import 'package:appzin_2_0/chat/controllers/chatformcontroller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Mensagens extends StatefulWidget {
   const Mensagens({super.key});
+
 
   @override
   State<Mensagens> createState() => _MensagensState();
 }
 
 class _MensagensState extends State<Mensagens> {
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,108 +29,41 @@ class _MensagensState extends State<Mensagens> {
         backgroundColor: Colors.lightGreen,
       ),
       backgroundColor: Colors.green,
-      body: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    width: 300,
-                    height: 100,
-                    margin: EdgeInsets.only(
-                        left: 0, bottom: 100, top: 30, right: 180),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: Colors.greenAccent,
+      body: GetBuilder( init: Chatformcontroller(),
+        builder: (controller)=> Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Form(
+                    key: controller.formkey,
+                    child: Column(
+                      children: controller.mensagens.map((msg)=>Container(
+                          width: 200,
+                          height: 80,
+                          margin:  EdgeInsetsDirectional.only(start: 290, top: 50),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12.0),
+                            color: Colors.indigoAccent,
+                          ),
+                          padding: EdgeInsets.all(20),
+                          child: Text(msg),
+                        ),).toList()
                     ),
-                    padding: EdgeInsets.all(20),
-                    child: Text(
-                      "olá, gostaria que você fizesse uma entrega de 67KG de carne moída pra mim 🥺",
-                    ),
-                  ),
-                  Container(
-                    width: 150,
-                    height: 65,
-                    margin: EdgeInsetsDirectional.only(start: 350),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: Colors.indigoAccent,
-                    ),
-                    padding: EdgeInsets.all(20),
-                    child: Text("podexá, chefia!"),
-                  ),
-                  Container(
-                    width: 300,
-                    height: 120,
-                    margin: EdgeInsetsDirectional.only(start: 193, top: 50),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: Colors.indigoAccent,
-                    ),
-                    padding:  EdgeInsets.all(20),
-                    child: Text(
-                      "Aproveitando o bom humor do senhor... Eu gostaria de saber se haveria alguma possibilidade de eu conseguir um aumento :)",
-                    ),
-                  ),
-                  Container(
-                    width: 150,
-                    height: 80,
-                    margin: EdgeInsetsDirectional.only(end: 330, top: 50),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: Colors.greenAccent,
-                    ),
-                    padding: EdgeInsets.all(20),
-                    child:  Text("hahaha não. Vai trabalhar"),
-                  ),
-                  Container(
-                    width: 80,
-                    height: 65,
-                    margin:  EdgeInsetsDirectional.only(start: 410, top: 50),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: Colors.indigoAccent,
-                    ),
-                    padding: EdgeInsets.all(20),
-                    child:  Text(":("),
-                  ),
-                  Container(
-                    width: 250,
-                    height: 70,
-                    margin:  EdgeInsetsDirectional.only(
-                        end: 340, top: 50, start: 15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: Colors.greenAccent,
-                    ),
-                    padding: EdgeInsets.all(10),
-                    child: Text("amanhã tu vem pra nois assistir a copa"),
-                  ),
-                  Container(
-                    width: 200,
-                    height: 80,
-                    margin:  EdgeInsetsDirectional.only(start: 290, top: 50),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: Colors.indigoAccent,
-                    ),
-                    padding: EdgeInsets.all(20),
-                    child: Text("agora vi vantagem, chefia"),
-                  ),
-                ],
+                ),
               ),
             ),
-          ),
-          Input(),
-        ],
+            Input(controller.mensageController),
+          ],
+        ),
       ),
     );
   }
 }
 
 class Input extends StatelessWidget {
-  const Input({super.key});
+  final TextEditingController controller;
+
+  const Input(this.controller, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -139,6 +77,7 @@ class Input extends StatelessWidget {
       ),
       padding:  EdgeInsets.all(20),
       child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
           hintText: "digite sua mensagem...",
           contentPadding: EdgeInsets.symmetric(vertical: 12),
