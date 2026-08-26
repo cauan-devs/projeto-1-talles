@@ -67,22 +67,27 @@ class Input extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 550,
-      height: 60,
-      margin: const EdgeInsetsDirectional.only(start: 53, top: 10, end: 45),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.0),
-        color: Colors.white,
-      ),
-      padding:  EdgeInsets.all(20),
-      child: TextFormField(
-        controller: controller,
-        decoration: InputDecoration(
-          hintText: "digite sua mensagem...",
-          contentPadding: EdgeInsets.symmetric(vertical: 12),
-        ),
-      ),
+    return Row(
+      children: [
+        Container(
+          width: 500,
+          height: 60,
+          margin: const EdgeInsetsDirectional.only(start: 10, top: 10, end: 0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.0),
+            color: Colors.white,
+          ),
+          padding:  EdgeInsets.all(20),
+          child: TextFormField(
+            controller: controller,
+            decoration: InputDecoration(
+              hintText: "digite sua mensagem...",
+              contentPadding: EdgeInsets.symmetric(vertical: 12),
+            ),
+          ),
+         ),
+    FloatingActionButton(onPressed: (){})
+      ],
     );
   }
 }
