@@ -1,3 +1,4 @@
+
 import 'package:appzin_2_0/chat/controllers/chatformcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -70,9 +71,9 @@ class Input extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: 500,
+          width: 450,
           height: 60,
-          margin: const EdgeInsetsDirectional.only(start: 10, top: 10, end: 0),
+          margin: const EdgeInsetsDirectional.only(start: 5, top: 10, end: 0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0),
             color: Colors.white,
@@ -86,7 +87,10 @@ class Input extends StatelessWidget {
             ),
           ),
          ),
-    FloatingActionButton(onPressed: (){})
+    FloatingActionButton(onPressed: (){
+     },
+    backgroundColor: Colors.lightGreenAccent,
+    )
       ],
     );
   }
